@@ -14,7 +14,7 @@ public class guerreiro implements Atacante {
     
     @Override
     public void atacar() {
-        System.out.println("Chuva de aço!");
+        System.out.println("Ataqueee!");
     }
 
 }
