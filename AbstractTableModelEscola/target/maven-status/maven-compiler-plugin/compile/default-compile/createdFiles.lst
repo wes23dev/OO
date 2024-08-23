@@ -3,6 +3,7 @@ gui\tableModels\TMCadAluno.class
 gui\JDialogProfessor$3.class
 gui\JDialogAluno$5.class
 gui\JDialogProfessor$5.class
+serializador\serializadorCSVProf.class
 gerenciador\gerenciadorDisciplina.class
 gerenciador\gerenciadorPessoa.class
 gui\tableModels\TMCadDisciplina.class
@@ -17,12 +18,15 @@ gui\JDialogDisciplina$3.class
 gerenciador\gerenciadorAluno.class
 gui\JDialogProfessor$6.class
 gui\JDialogAluno.class
+serializador\SerializadorCSVDisc.class
 gui\JDialogDisciplina$4.class
 Classes\Aluno.class
 gui\JDialogDisciplina$6.class
 gui\JFrameDepartamento_1$3.class
+serializador\serializadorCSVAluno.class
 gui\JDialogAluno$1.class
 gui\JDialogDisciplina$1.class
+serializador\filePersistence.class
 gui\JDialogProfessor.class
 gui\JDialogAluno$6.class
 gui\JDialogProfessor$4.class

@@ -8,6 +8,8 @@ import Classes.Pessoa;
 import Classes.Professor;
 import java.util.ArrayList;
 import java.util.List;
+import serializador.filePersistence;
+import serializador.serializadorCSVProf;
 
 /**
  *
@@ -77,24 +79,24 @@ public class gerenciadorProf implements gerenciadorPessoa{
         return "gerenciadorProfessor{" + "profs=" + profs + '}';
     }
     
-   // public void salvarNoArquivo(String caminhoDoArquivo) {
-       // serializadorCSVProf serializador = new serializadorCSVProf();
-       // String csvData = serializador.toCSV(profs);
+    public void salvarNoArquivo(String caminhoDoArquivo) {
+       serializadorCSVProf serializador = new serializadorCSVProf();
+       String csvData = serializador.toCSV(profs);
 
-       // filePersistence filePersistence = new filePersistence();
-       // filePersistence.saveToFile(csvData, caminhoDoArquivo);
-       // System.out.println("Professores salvos em " + caminhoDoArquivo);
-   // }
+       filePersistence filePersistence = new filePersistence();
+       filePersistence.saveToFile(csvData, caminhoDoArquivo);
+       System.out.println("Professores salvos em " + caminhoDoArquivo);
+    }
 
-    //public void carregarDoArquivo(String caminhoDoArquivo) {
-      //  filePersistence FilePersistence = new filePersistence();
-        //String csvData = FilePersistence.loadFromFile(caminhoDoArquivo);
+    public void carregarDoArquivo(String caminhoDoArquivo) {
+      filePersistence FilePersistence = new filePersistence();
+      String csvData = FilePersistence.loadFromFile(caminhoDoArquivo);
 
-       // serializadorCSVProf serializador = new serializadorCSVProf();
-       // this.profs = serializador.fromCSV(csvData);
+       serializadorCSVProf serializador = new serializadorCSVProf();
+       this.profs = serializador.fromCSV(csvData);
 
-        //System.out.println("Professores carregados de " + caminhoDoArquivo);
-   // }
+        System.out.println("Professores carregados de " + caminhoDoArquivo);
+    }
     
     
 }

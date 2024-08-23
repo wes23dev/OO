@@ -33,6 +33,8 @@ public class JDialogDisciplina extends javax.swing.JDialog {
 
         this.habilitarCampos(false);
         this.limparCampos();
+        this.gerenciaDisc.carregarDoArquivo("ListagemDisciplina.csv");
+        String listagem = this.gerenciaDisc.toString();
 
         this.atualizarTabela();
     }
@@ -107,14 +109,14 @@ public class JDialogDisciplina extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        JPanelDisciplina.setBackground(new java.awt.Color(153, 153, 153));
+        JPanelDisciplina.setBackground(new java.awt.Color(255, 255, 255));
 
         jlbDisciplina.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jlbDisciplina.setForeground(new java.awt.Color(0, 0, 0));
         jlbDisciplina.setText("Disciplina ");
         JPanelDisciplina.add(jlbDisciplina);
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         btnNovo.setBackground(new java.awt.Color(204, 204, 204));
@@ -167,7 +169,7 @@ public class JDialogDisciplina extends javax.swing.JDialog {
         });
         jPanel2.add(btnExcluir);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
         lblNome.setForeground(new java.awt.Color(0, 0, 0));
         lblNome.setText("Nome");
@@ -243,6 +245,7 @@ public class JDialogDisciplina extends javax.swing.JDialog {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        grdDisciplina.setBackground(new java.awt.Color(255, 255, 255));
         grdDisciplina.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -305,6 +308,7 @@ public class JDialogDisciplina extends javax.swing.JDialog {
         this.habilitarCampos(false);
 
         this.atualizarTabela();
+        this.gerenciaDisc.salvarNoArquivo("ListagemDisciplina.csv");
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -341,6 +345,8 @@ public class JDialogDisciplina extends javax.swing.JDialog {
             this.objetoParaCampos(discEditando);
             this.editando = true;
             this.nomeEscolhido = discEditando.getNome();
+            this.atualizarTabela();
+            this.gerenciaDisc.salvarNoArquivo("ListagemDisciplina.csv");
         }
 
     }//GEN-LAST:event_btnEdtActionPerformed
@@ -358,6 +364,7 @@ public class JDialogDisciplina extends javax.swing.JDialog {
         }
 
         this.atualizarTabela();
+        this.gerenciaDisc.salvarNoArquivo("ListagemDisciplina.csv");
 
     }//GEN-LAST:event_btnExcluirActionPerformed
     
@@ -381,10 +388,10 @@ public class JDialogDisciplina extends javax.swing.JDialog {
     
     public void atualizarTabela() {
         //cria o objeto Abstract table Model
-        TMCadDisciplina tmcadaluno = new TMCadDisciplina(gerenciaDisc.getDisciplinas());
+        TMCadDisciplina tmcaddisc = new TMCadDisciplina(gerenciaDisc.getDisciplinas());
 
         //ligar ele no modelo da sua JTable
-        grdDisciplina.setModel(tmcadaluno);
+        grdDisciplina.setModel(tmcaddisc);
     }
     
     /**

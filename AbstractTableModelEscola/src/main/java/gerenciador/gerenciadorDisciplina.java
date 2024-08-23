@@ -7,6 +7,8 @@ package gerenciador;
 import Classes.Disciplina;
 import java.util.ArrayList;
 import java.util.List;
+import serializador.SerializadorCSVDisc;
+import serializador.filePersistence;
 
 /**
  *
@@ -57,23 +59,23 @@ public class gerenciadorDisciplina {
         return disciplina;
     }
     
-    //public void salvarNoArquivo(String caminhoDoArquivo) {
-       // serializadorCSVDisciplina serializador = new serializadorCSVDisciplina();
-       // String csvData = serializador.toCSV(disciplina);
+    public void salvarNoArquivo(String caminhoDoArquivo) {
+        SerializadorCSVDisc serializador = new SerializadorCSVDisc();
+        String csvData = serializador.toCSV(disciplina);
 
-       // filePersistence filePersistence = new filePersistence();
-       // filePersistence.saveToFile(csvData, caminhoDoArquivo);
-       // System.out.println("Disciplina salva em " + caminhoDoArquivo);
-   // }
+        filePersistence filePersistence = new filePersistence();
+        filePersistence.saveToFile(csvData, caminhoDoArquivo);
+        System.out.println("Disciplina salva em " + caminhoDoArquivo);
+    }
 
-   // public void carregarDoArquivo(String caminhoDoArquivo) {
-     //   filePersistence FilePersistence = new filePersistence();
-      //  String csvData = FilePersistence.loadFromFile(caminhoDoArquivo);
+    public void carregarDoArquivo(String caminhoDoArquivo) {
+       filePersistence FilePersistence = new filePersistence();
+       String csvData = FilePersistence.loadFromFile(caminhoDoArquivo);
 
-       // serializadorCSVDisciplina serializador = new serializadorCSVDisciplina();
-       // this.disciplina = serializador.fromCSV(csvData);
+       SerializadorCSVDisc serializador = new SerializadorCSVDisc();
+       this.disciplina = serializador.fromCSV(csvData);
 
-       // System.out.println("Disciplinas carregados de " + caminhoDoArquivo);
-  //  }
+       System.out.println("Disciplinas carregados de " + caminhoDoArquivo);
+    }
     
 }

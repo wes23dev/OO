@@ -39,6 +39,9 @@ public class JDialogProfessor extends javax.swing.JDialog {
     
         this.habilitarCampos(false);
         this.limparCampos();
+         this.gerenciaP.carregarDoArquivo("ListagemProf.csv");
+        String listagem = this.gerenciaP.toString();
+
 
         this.atualizarTabela();
     }
@@ -109,14 +112,14 @@ public class JDialogProfessor extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblProf.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblProf.setForeground(new java.awt.Color(0, 0, 0));
         lblProf.setText(" Professor ");
         jPanel1.add(lblProf);
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         btnNovo.setBackground(new java.awt.Color(204, 204, 204));
         btnNovo.setForeground(new java.awt.Color(0, 0, 0));
@@ -168,7 +171,7 @@ public class JDialogProfessor extends javax.swing.JDialog {
         });
         jPanel2.add(btnExcluir);
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 
         lblNome.setForeground(new java.awt.Color(0, 0, 0));
         lblNome.setText("Nome");
@@ -229,6 +232,7 @@ public class JDialogProfessor extends javax.swing.JDialog {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        grdProfessor.setBackground(new java.awt.Color(255, 255, 255));
         grdProfessor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -317,6 +321,7 @@ public class JDialogProfessor extends javax.swing.JDialog {
         this.habilitarCampos(false);
 
         this.atualizarTabela();
+        this.gerenciaP.salvarNoArquivo("ListagemProf.csv");
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -334,6 +339,7 @@ public class JDialogProfessor extends javax.swing.JDialog {
         
 
         this.atualizarTabela();
+        this.gerenciaP.salvarNoArquivo("ListagemProf.csv");
 
     }//GEN-LAST:event_btnExcluirActionPerformed
 
